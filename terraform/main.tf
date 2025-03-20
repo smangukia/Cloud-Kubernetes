@@ -23,12 +23,12 @@ resource "google_container_cluster" "primary" {
   }
 }
 
-resource "google_artifact_registry_repository" "my-repo" {
-  location      = "us-central1"
-  repository_id = "kubernetes-assignment"
-  format        = "DOCKER"
-  description   = "Docker repository for Kubernetes assignment"
-}
+# resource "google_artifact_registry_repository" "my-repo" {
+#   location      = "us-central1"
+#   repository_id = "kubernetes-assignment"
+#   format        = "DOCKER"
+#   description   = "Docker repository for Kubernetes assignment"
+# }
 
 output "kubernetes_cluster_name" {
   value = google_container_cluster.primary.name
