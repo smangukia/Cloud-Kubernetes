@@ -19,6 +19,13 @@ steps:
       - 'us-central1-a'
     id: 'Set up kubectl'
 
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'delete'
+      - 'validatingwebhookconfiguration'
+      - 'gmp-operator.gmp-system.monitoring.googleapis.com'
+      - '--ignore-not-found=true'
+
     # Deploy the latest image to GKE
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
