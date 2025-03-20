@@ -15,7 +15,7 @@ app.post("/calculate", (req, res) => {
       error: "Invalid JSON input.",
     });
   }
-  const filePath = path.join("/mnt/data", file);
+  const filePath = path.join("/samarth_PV_dir", file);
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({
       file,

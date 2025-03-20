@@ -19,10 +19,10 @@ spec:
         - containerPort: 5001
         env:
         - name: PV_DIR
-          value: "/mnt/data"
+          value: "/samarth_PV_dir"
         volumeMounts:
         - name: shared-data
-          mountPath: /mnt/data
+          mountPath: /samarth_PV_dir
         resources:
           requests:
             memory: "256Mi"

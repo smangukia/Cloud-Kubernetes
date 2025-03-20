@@ -20,15 +20,15 @@ app.post("/store-file", (req, res) => {
     });
   }
 
-  if (!fs.existsSync("/mnt/data")) {
+  if (!fs.existsSync("/samarth_PV_dir")) {
     try {
-      fs.mkdirSync("/mnt/data", { recursive: true });
+      fs.mkdirSync("/samarth_PV_dir", { recursive: true });
     } catch (err) {
       console.error(`Error creating data directory: ${err.message}`);
     }
   }
 
-  const filePath = path.join("/mnt/data", file);
+  const filePath = path.join("/samarth_PV_dir", file);
 
   try {
     fs.writeFileSync(filePath, data);
@@ -55,7 +55,7 @@ app.post("/calculate", async (req, res) => {
       error: "Invalid JSON input.",
     });
   }
-  const filePath = path.join("/mnt/data", file);
+  const filePath = path.join("/samarth_PV_dir", file);
   console.log(`Checking file at: ${filePath}`);
 
   if (!fs.existsSync(filePath)) {
