@@ -3,4 +3,4 @@ terraform/.terraform.lock.hcl
 /terraform/.terraform
 *.tfstate
 *.backup
-*.json
+terraform/myproject2203-6028ec717602.json
