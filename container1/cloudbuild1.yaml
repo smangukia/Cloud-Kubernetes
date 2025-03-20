@@ -14,7 +14,7 @@ steps:
       - 'container'
       - 'clusters'
       - 'get-credentials'
-      - 'myproject2203'
+      - 'kubernetes-assignment-cluster'
       - '--zone'
       - 'us-central1-a'
     id: 'Set up kubectl'
