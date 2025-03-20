@@ -16,7 +16,7 @@ steps:
       - 'get-credentials'
       - 'kubernetes-assignment-cluster'
       - '--zone'
-      - 'us-central2-a'
+      - 'us-central1-a'
     id: 'Set up kubectl'
 
     # Deploy the latest image to GKE
