@@ -34,3 +34,16 @@ spec:
       - name: shared-data
         persistentVolumeClaim:
           claimName: data-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: container2-service
+spec:
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5001
+  selector:
+    app: container2
