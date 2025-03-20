@@ -16,6 +16,7 @@ resource "google_container_cluster" "primary" {
     disk_size_gb = 200
     disk_type    = "pd-standard"
     image_type   = "cos_containerd" 
+    service_account = "clouda3@myproject2203.iam.gserviceaccount.com"
 
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
