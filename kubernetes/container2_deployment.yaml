@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: container2
-        image: us-central1-docker.pkg.dev/myproject2203/container2/container2:latest
+        image: gcr.io/myproject2203/container2:latest
         ports:
         - containerPort: 5001
         env:
