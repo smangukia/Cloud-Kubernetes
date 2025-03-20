@@ -14,7 +14,7 @@ steps:
       - 'container'
       - 'clusters'
       - 'get-credentials'
-      - 'myapp-gke-cluster'
+      - 'myproject2203'
       - '--zone'
       - 'us-central1-a'
     id: 'Set up kubectl'
@@ -25,8 +25,8 @@ steps:
       - 'kubectl'
       - 'apply'
       - '-f'
-      - 'processor_api/k8s/processor-api-deployment.yaml'
-    id: 'Deploy processor_api to GKE'
+      - 'container1/k8s/container1_deployment.yaml'
+    id: 'Deploy container1 to GKE'
 
 images:
   - 'gcr.io/$PROJECT_ID/container1:latest'
