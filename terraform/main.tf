@@ -38,9 +38,9 @@ output "kubernetes_cluster_endpoint" {
   value = google_container_cluster.primary.endpoint
 }
 
-output "artifact_registry_repository_url" {
-  value = "${google_artifact_registry_repository.my-repo.location}-docker.pkg.dev/${google_container_cluster.primary.project}/kubernetes-assignment"
-}
+# output "artifact_registry_repository_url" {
+#   value = "${google_artifact_registry_repository.my-repo.location}-docker.pkg.dev/${google_container_cluster.primary.project}/kubernetes-assignment"
+# }
 
 output "gcloud_container_clusters_get_credentials_command" {
   value = "gcloud container clusters get-credentials ${google_container_cluster.primary.name} --zone ${google_container_cluster.primary.location} --project myproject2203"
