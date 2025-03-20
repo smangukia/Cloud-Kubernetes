@@ -19,12 +19,12 @@ spec:
         - containerPort: 6000
         env:
         - name: PV_DIR
-          value: "/mnt/data"
+          value: "/samarth_PV_dir"
         - name: CONTAINER2_BASE_URL
           value: "http://container2-service:80"
         volumeMounts:
         - name: shared-data
-          mountPath: /mnt/data
+          mountPath: /samarth_PV_dir
         resources:
           requests:
             memory: "256Mi"
