@@ -55,7 +55,6 @@ app.post("/calculate", async (req, res) => {
       error: "Invalid JSON input.",
     });
   }
-
   const filePath = path.join("/mnt/data", file);
   console.log(`Checking file at: ${filePath}`);
 

@@ -15,7 +15,6 @@ app.post("/calculate", (req, res) => {
       error: "Invalid JSON input.",
     });
   }
-
   const filePath = path.join("/mnt/data", file);
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({
