@@ -1,0 +1,26 @@
+version: '3'
+services:
+  container-1:
+    build:
+      context: ./container1
+      dockerfile: Dockerfile
+    ports:
+      - "6000:6000"
+    volumes:
+      - data-volume:/app/data
+    environment:
+      - CONTAINER2_BASE_URL=http://container-2:5001
+    depends_on:
+      - container-2
+
+  container-2:
+    build:
+      context: ./container2
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    volumes:
+      - data-volume:/app/data
+
+volumes:
+  data-volume:
