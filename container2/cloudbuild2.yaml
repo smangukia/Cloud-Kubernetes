@@ -19,14 +19,7 @@ steps:
       - 'us-central1-a'
     id: 'Set up kubectl'
 
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'delete'
-      - 'validatingwebhookconfiguration'
-      - 'gmp-operator.gmp-system.monitoring.googleapis.com'
-      - '--ignore-not-found=true'
-  
-    # Deploy the latest image to GKE
+  # Deploy the latest image to GKE
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
       - 'kubectl'
@@ -34,6 +27,25 @@ steps:
       - '-f'
       - 'container2/k8s/container2_deployment.yaml'
     id: 'Deploy container2 to GKE'
+    
+  # Delete GMP webhooks that cause health issues
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - 'kubectl'
+      - 'delete'
+      - 'validatingwebhookconfiguration'
+      - 'gmp-operator.gmp-system.monitoring.googleapis.com'
+      - '--ignore-not-found=true'
+    id: 'Delete GMP validating webhooks'
+    
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      - 'kubectl'
+      - 'delete'
+      - 'mutatingwebhookconfiguration'
+      - 'gmp-operator.gmp-system.monitoring.googleapis.com'
+      - '--ignore-not-found=true'
+    id: 'Delete GMP mutating webhooks'
 
 images:
   - 'gcr.io/$PROJECT_ID/container2:latest'
