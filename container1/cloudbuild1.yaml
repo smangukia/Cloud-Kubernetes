@@ -19,9 +19,10 @@ steps:
       - 'us-central1-a'
     id: 'Set up kubectl'
 
-  # Delete validating webhook configuration
-  - name: 'gcr.io/cloud-builders/kubectl'
+  # Delete validating webhook configuration - use cloud-sdk instead of kubectl image
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
+      - 'kubectl'
       - 'delete'
       - 'validatingwebhookconfiguration'
       - 'gmp-operator.gmp-system.monitoring.googleapis.com'
@@ -29,8 +30,9 @@ steps:
     id: 'Delete GMP validating webhooks'
     
   # Delete mutating webhook configuration
-  - name: 'gcr.io/cloud-builders/kubectl'
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
+      - 'kubectl'
       - 'delete'
       - 'mutatingwebhookconfiguration'
       - 'gmp-operator.gmp-system.monitoring.googleapis.com'
