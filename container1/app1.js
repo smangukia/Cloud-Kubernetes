@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 const BASE_URL = process.env.CONTAINER2_BASE_URL || "http://container-2:5001";
-const CONTAINER_2_URL = `${BASE_URL}/calculate`; 
+const CONTAINER_2_URL = `${BASE_URL}/calculate`;
 
 app.get('/health', (req, res) => {
   res.status(200).send('Ok');
